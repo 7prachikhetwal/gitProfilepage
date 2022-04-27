@@ -1,4 +1,7 @@
 import { Component ,ViewChild} from '@angular/core';
+import { GitinfoService } from './services/gitinfo.service';
+
+
 import {
   ApexAxisChartSeries,
   ApexTitleSubtitle,
@@ -19,12 +22,17 @@ export type ChartOptions = {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  {
+  //users:any;
+  users: any = [];
+  user1:any=[];
+  followers:any=[];
+   //users:any[] | undefined; 
  // @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>| any;
   title = 'tailwind';
 
-  constructor(){
+  constructor(private getgit: GitinfoService){
     this.chartOptions = {
       series: [
         {
@@ -93,6 +101,26 @@ export class AppComponent {
     };
   }
 
+  ngOnInit() {
+  this.getgit.getGitUser().subscribe((res:any)=> {
+        this.users = res;
+        this.followers=res.followers;
+        console.log(this.followers,'followers');
+       // this.user1=this.users[0];
+        console.log('users infooooooooooooooo',this.users)
+        console.log("user info from github API");
+    })
+    
+  //   this.getgit.getGitFollow().subscribe((res:any)=> {
+ 
+  //    // this.user1=this.users[0];
+  //    // console.log('users infooooooooooooooo',this.follow)
+  //     console.log("user follow info from github API");
+  // })
+
+ 
+  }
+  
   public generateData(count:any, yrange:any) {
     var i = 0;
     var series = [];
@@ -137,14 +165,14 @@ export class AppComponent {
   
   }
 
-  months(){
-   
-  }
+  
 
   SmallBox = () => {
     const colorWeights = [100, 400, 500, 600, 700];
     return 
   };
+
+
   
 
 

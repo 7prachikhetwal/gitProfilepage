@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { HeatMapAllModule } from '@syncfusion/ej2-angular-heatmap';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { GitinfoService } from './services/gitinfo.service';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -13,10 +17,10 @@ import { NgApexchartsModule } from "ng-apexcharts";
     
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule,
     AppRoutingModule,NgApexchartsModule,
   ],
-  providers: [],
+  providers: [GitinfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
