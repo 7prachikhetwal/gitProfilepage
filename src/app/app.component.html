@@ -83,11 +83,11 @@
 <div  style="margin-top:20px;"class="mgz row">
   <div  class="col-md-4 "><!--pl-3 pr-3 pt-5 pb-5-->
     
-      <div   class="col-sm-10 pl-3 pr-3 pt-5 pb-5">
+      <div *ngFor="let use of users"  class="col-sm-10 pl-3 pr-3 pt-5 pb-5">
         
        <img style="z-index:1;margin-top:-40px"class="sizes rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
      <div >
-       <p> <b>prachi</b></p>
+       <p> <b>{{use.owner.login}}</b></p>
        <p style="margin-top:-20px">Khetwal</p>
        <p style="margin-top:-20px;font-weight:200">I'm the author of node-opucua and node-cc</p>
        <button class="space bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-6 border border-gray-400 rounded shadow">
@@ -98,7 +98,7 @@
       </button>
      <div style="margin-top: 10px;width:220px;display:flex;justify-content: space-between;">
       <i class="gg-user"></i>
-     <p>followers</p><p> following</p>
+     <p>140 followers</p><p> 100 following</p>
       </div>
 
       <div style="margin-top:20px">
