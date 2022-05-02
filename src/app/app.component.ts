@@ -26,7 +26,15 @@ export class AppComponent  {
   //users:any;
   users: any = [];
   user1:any=[];
-  followers:any=[];
+  followers:any;
+  following:any;
+  location:any;
+  email:any;
+  public_repos:any;
+  bio:any;
+  company:any;
+  blog:any;
+  name:any;
    //users:any[] | undefined; 
  // @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>| any;
@@ -96,7 +104,7 @@ export class AppComponent  {
       },
       colors: ["#228b22"],
       title: {
-        text: "694 Contributions in the last year"
+        text: " Contributions in the last year"
       }
     };
   }
@@ -104,19 +112,28 @@ export class AppComponent  {
   ngOnInit() {
   this.getgit.getGitUser().subscribe((res:any)=> {
         this.users = res;
-        this.followers=res.followers;
-        console.log(this.followers,'followers');
+       // this.followers=res.followers;
+        //console.log(this.followers,'followers');
        // this.user1=this.users[0];
         console.log('users infooooooooooooooo',this.users)
         console.log("user info from github API");
     })
     
-  //   this.getgit.getGitFollow().subscribe((res:any)=> {
- 
-  //    // this.user1=this.users[0];
-  //    // console.log('users infooooooooooooooo',this.follow)
-  //     console.log("user follow info from github API");
-  // })
+    this.getgit.getGitFollow().subscribe((res2:any)=> {
+ this.followers=res2.followers;
+ this.following=res2.following;
+ this.location=res2.location;
+ this.email=res2.email;
+ this.bio=res2.bio;
+ this.public_repos=res2.public_repos;
+ this.company=res2.company;
+ this.blog=res2.blog;
+ this.name=res2.name;
+
+     // this.user1=this.users[0];
+     // console.log('users infooooooooooooooo',this.follow)
+      console.log("user follow info from github API");
+  })
 
  
   }

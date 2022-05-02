@@ -12,7 +12,7 @@ export class GitinfoService {
     return this.http.get('https://api.github.com/users/7prachikhetwal/repos'); 
 }
 
-// getGitFollow(){
-//   return this.http.get('https://api.github.com/users/7prachikhetwal/repos'); 
-// }
+getGitFollow(){
+  return this.http.get('https://api.github.com/users/7prachikhetwal'); 
+}
 }
